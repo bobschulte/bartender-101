@@ -7,7 +7,7 @@ class IngredientsController < ApplicationController
     end
     
     def index
-        @ingredients = Ingredient.all
+        @ingredients = Ingredient.all.order(:name)
     end
     
     def update

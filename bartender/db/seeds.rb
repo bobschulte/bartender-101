@@ -20,6 +20,7 @@ drinks_array.each do |drink|
     ingredient = Ingredient.find_or_create_by(name: drink["strIngredient#{i}"])
   
       cocktail.ingredients << ingredient
+      cocktailingredient = CocktailIngredient.last.update(measurement: drink["strMeasure#{i}"])
     end
   end
 

@@ -7,7 +7,7 @@ class CocktailsController < ApplicationController
     end
     
     def index
-        @cocktails = Cocktail.all
+        @cocktails = Cocktail.all.order(:name)
     end
     
     def update

@@ -1,2 +1,7 @@
 <h1>Cocktail Form</h1>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+
 <%= render "form", ingredient_count: @ingredient_count %>

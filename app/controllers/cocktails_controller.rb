@@ -9,10 +9,9 @@ class CocktailsController < ApplicationController
             @cocktail.save
             redirect_to cocktail_path(@cocktail)
         else
-            flash[:notice] = @cocktail.errors.messages
+            flash[:notice] = build_error_msg(@cocktail.errors.messages, "create")
             render :new
         end
-
     end
 
     def new
@@ -25,9 +24,20 @@ class CocktailsController < ApplicationController
         @cocktails = Cocktail.all.order(:name)
     end
 
+    # def edit
+    #   #code
+    # end
+
     def update
-        @cocktail.update(cocktail_params)
-        redirect_to @cocktail
+        @cocktail.assign_attributes(cocktail_params)
+
+        if @cocktail.valid?
+            @cocktail.save
+            redirect_to cocktail_path(@cocktail)
+        else
+            flash[:notice] = build_error_msg(@cocktail.errors.messages, "edit")
+            redirect_to cocktail_path(@cocktail)
+        end
     end
 
     def destroy
@@ -54,4 +64,13 @@ class CocktailsController < ApplicationController
     def cocktail_params
         params.require(:cocktail).permit(:name, :img_url, :instructions, :glass_type, cocktail_ingredients_attributes: [ [ :ingredient_id, :measurement ] ] )
     end
+
+    def build_error_msg(messages, verb)
+        str = "Could not #{verb} cocktail. "
+        messages.each do |attribute, msg|
+            str << "#{attribute.to_s.split("_").join(" ").capitalize} #{msg[0]}. "
+        end
+        str
+    end
+
 end

@@ -21,7 +21,7 @@ class Cocktail < ApplicationRecord
     check = id_array.detect{ |e| id_array.count(e) > 1 }
 
     if !check.nil?
-      errors.add(:cocktail_ingredient, "can't duplicate an ingredient")
+      errors.add(:cocktail_ingredient, "cannot be duplicated")
     end
   end
 

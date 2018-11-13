@@ -1,5 +1,5 @@
 <h1><%= @cocktail.name %> </h1>
-<%= image_tag(@cocktail.img_url, size: "75x75") %><br>
+<%= image_tag(@cocktail.img_url, size: "100x100") %><br>
 <p><%=@cocktail.glass_type %></p>
 <ul>
 <% @cocktail.cocktail_ingredients.each do |cocktail_ingredient|%>
@@ -7,3 +7,4 @@
 <% end %>
 </ul>
 <p><%=@cocktail.instructions%></p>
+<%= link_to "Back to All Cocktails", cocktails_path %>

@@ -1,0 +1,24 @@
+<%= form_for @cocktail do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.label :img_url %><br>
+  <%= f.text_field :img_url %>
+  <br><br>
+  <%= f.label :glass_type %><br>
+  <%= f.text_field :glass_type %>
+  <br><br>
+  <%= f.label :instructions %><br>
+  <%= f.text_area :instructions %>
+  <br><br>
+
+  <%= f.fields_for :cocktail_ingredients do |cocktail_ingredient_form| %>
+    <%= cocktail_ingredient_form.label :ingredient_id %>
+    <%= cocktail_ingredient_form.collection_select :ingredient_id, Ingredient.all, :id, :name %>
+    <br><br>
+    <%= cocktail_ingredient_form.label :measurement %>
+    <%= cocktail_ingredient_form.text_field :measurement %>
+    <br><br>
+  <% end %>
+  <%= f.submit %>
+<% end %>

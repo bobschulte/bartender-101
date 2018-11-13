@@ -4,6 +4,8 @@
 <% end %>
 <br>
 <%= form_tag new_cocktail_path, method: 'post' do %>
+  <label>Create Cocktail: </label><br>
+  <label>Select Number of Ingredients: </label>
   <select id="num_ingredients" name="num_ingredients">
     <% for i in (2..15) %>
       <option value="<%= i %>"><%= i %></option>

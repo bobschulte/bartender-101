@@ -23,6 +23,7 @@ Things you may want to cover:
 
 # REACH GOALS
 
+- Validate uniqueness of cocktail ingredients in cocktail#create
 - Implement Users/Sessions
 - Iterate over API categories to get more seed data
 - Front-end/Bootstrap

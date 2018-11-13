@@ -7,4 +7,9 @@
 <% end %>
 </ul>
 <p><%=@cocktail.instructions%></p>
+
+<%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail) %>
+<br><br>
+<%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: "delete" %>
+<br><br>
 <%= link_to "Back to All Cocktails", cocktails_path %>

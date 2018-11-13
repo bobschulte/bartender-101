@@ -18,7 +18,7 @@ drinks_array.each do |drink|
   for i in (1..15)
     if !drink["strIngredient#{i}"].empty?
     ingredient = Ingredient.find_or_create_by(name: drink["strIngredient#{i}"])
-  
+
       cocktail.ingredients << ingredient
       cocktailingredient = CocktailIngredient.last.update(measurement: drink["strMeasure#{i}"])
     end

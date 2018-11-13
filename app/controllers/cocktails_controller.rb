@@ -3,30 +3,32 @@ class CocktailsController < ApplicationController
     before_action :define_current_cocktail
 
     def create
-        # byebug
         @cocktail = Cocktail.new(cocktail_params)
 
-        cocktail_params["cocktail_ingredients_attributes"].each do |num, attributes|
-            @cocktail.cocktail_ingredients.create(attributes)
-        end
-
         if @cocktail.valid?
-            @cocktail.save
-            redirect_to cocktail_path(@cocktail)
+
+            id_array = []
+            cocktail_params["cocktail_ingredients_attributes"].each do |num, attributes|
+                id_array << attributes["ingredient_id"]
+                # @cocktail.cocktail_ingredients.build(attributes)
+            end
+
+            check = id_array.detect{ |e| id_array.count(e) > 1 }
+
+            if check.nil?
+                @cocktail.save
+                redirect_to cocktail_path(@cocktail)
+            else
+                redirect_to new_cocktail_path
+            end
         else
             render :new
         end
+
     end
 
     def new
-      if params["num_ingredients"]
-          @ingredient_count = params["num_ingredients"]
-      else
-          @ingredient_count = 3
-      end
-      @ingredients = Ingredient.all
-
-      @ingredient_count.times do
+      ingredient_count(params).times do
         @cocktail.cocktail_ingredients.new
       end
     end
@@ -50,6 +52,14 @@ class CocktailsController < ApplicationController
             @cocktail = Cocktail.find(params[:id])
         else
             @cocktail = Cocktail.new
+        end
+    end
+
+    def ingredient_count(params)
+        if params["num_ingredients"]
+            params["num_ingredients"].to_i
+        else
+            3
         end
     end
 

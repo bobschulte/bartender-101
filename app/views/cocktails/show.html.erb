@@ -1,4 +1,10 @@
 <h1><%= @cocktail.name %> </h1>
+
+<% if flash[:notice] %>
+  <%= flash[:notice] %>
+<% end %>
+<br><br>
+
 <%= image_tag(@cocktail.img_url, size: "100x100") %><br>
 <p><%=@cocktail.glass_type %></p>
 <ul>

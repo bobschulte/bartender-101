@@ -2,5 +2,12 @@
 <% @cocktails.each do |cocktail|%>
 <%= link_to cocktail.name, cocktail%><br>
 <% end %>
-
-<%# TODO Create Button %>
+<br>
+<%= form_tag new_cocktail_path, method: 'post' do %>
+  <select id="num_ingredients" name="num_ingredients">
+    <% for i in (2..15) %>
+      <option value="<%= i %>"><%= i %></option>
+    <% end %>
+  </select><br>
+  <input type="submit" name="commit" value="Create Cocktail" />
+<% end %>

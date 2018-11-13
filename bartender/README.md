@@ -21,4 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+# REACH GOALS
+
+- Implement Users/Sessions
+- Iterate over API categories to get more seed data
+- Front-end/Bootstrap
+- Add more ingredients dropdowns to cocktail form (javascript?)

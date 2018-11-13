@@ -6,22 +6,10 @@ class CocktailsController < ApplicationController
         @cocktail = Cocktail.new(cocktail_params)
 
         if @cocktail.valid?
-
-            id_array = []
-            cocktail_params["cocktail_ingredients_attributes"].each do |num, attributes|
-                id_array << attributes["ingredient_id"]
-                # @cocktail.cocktail_ingredients.build(attributes)
-            end
-
-            check = id_array.detect{ |e| id_array.count(e) > 1 }
-
-            if check.nil?
-                @cocktail.save
-                redirect_to cocktail_path(@cocktail)
-            else
-                redirect_to new_cocktail_path
-            end
+            @cocktail.save
+            redirect_to cocktail_path(@cocktail)
         else
+            flash[:notice] = @cocktail.errors.messages
             render :new
         end
 

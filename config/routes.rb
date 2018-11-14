@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, except: :destroy
   # resources :cocktail_ingredients
   resources :ingredients
   resources :cocktails

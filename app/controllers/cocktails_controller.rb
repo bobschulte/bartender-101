@@ -1,6 +1,7 @@
 class CocktailsController < ApplicationController
 
     before_action :define_current_cocktail
+    before_action :require_login
 
     def create
         @cocktail = Cocktail.new(cocktail_params)
@@ -72,5 +73,4 @@ class CocktailsController < ApplicationController
         end
         str
     end
-
 end

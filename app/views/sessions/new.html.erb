@@ -1,10 +1,19 @@
 <h1>Login</h1>
 
+<div>
+  <%= @error_message %>
+</div>
+<br>
+<div>
 <%= form_with url: '/sessions/', method: :post do |f| %>
 <%= f.label "Username:"%><br>
 <%= f.text_field :username %><br>
 <%= f.label "Password:"%><br>
 <%= f.password_field :password %><br>
 <%= f.submit %>
-
 <% end %>
+</div>
+<br>
+<div>
+  <%= link_to "Register New User", new_user_path %>
+</div>

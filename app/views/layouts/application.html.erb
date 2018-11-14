@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div>
+      <%= yield %>
+    </div>
+    <br>
+    <div>
+      <%= link_to "Logout", logout_path, method: 'post' %>
+    </div>
   </body>
 </html>

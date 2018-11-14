@@ -23,7 +23,7 @@ Things you may want to cover:
 
 # REACH GOALS
 
-- Validate uniqueness of cocktail ingredients in cocktail#create
+- move flash messages to layout.erb?
 - Implement Users/Sessions
 - Iterate over API categories to get more seed data
 - Front-end/Bootstrap

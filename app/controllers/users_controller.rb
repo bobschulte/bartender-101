@@ -1,11 +1,19 @@
 class UsersController < ApplicationController
     before_action :define_current_user
+    before_action :require_login
+    skip_before_action :require_login, only: [:new]
 
     def create
-        user = User.create(user_params)
-        session[:current_user_id] = user.id
-        redirect_to user_path(user)
-        # redirect_to '/login'
+        user = User.new(user_params)
+
+        if user.valid?
+            user.save
+            session[:current_user_id] = user.id
+            redirect_to '/login'
+        else
+            flash[:error_message] = build_error_msg(user.errors.messages, 'register')
+            redirect_to new_user_path
+        end
     end
 
     def index
@@ -33,4 +41,13 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:first_name, :last_name, :username, :password)
     end
+
+    def build_error_msg(messages, verb)
+        str = "Could not #{verb} user. "
+        messages.each do |attribute, msg|
+            str << "#{attribute.to_s.split("_").join(" ").capitalize} #{msg[0]}. "
+        end
+        str
+    end
+
 end

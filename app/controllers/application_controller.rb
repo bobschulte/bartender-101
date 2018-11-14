@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
     @error_message = flash[:error_message]
   end
 
+  def require_login
+    if !session[:current_user_id]
+      flash[:error_message] = "Must login to use app."
+      redirect_to '/login'
+    end
+  end
 end

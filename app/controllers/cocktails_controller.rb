@@ -24,10 +24,6 @@ class CocktailsController < ApplicationController
         @cocktails = Cocktail.all.order(:name)
     end
 
-    # def edit
-    #   #code
-    # end
-
     def update
         @cocktail.assign_attributes(cocktail_params)
 

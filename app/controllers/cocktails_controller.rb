@@ -7,10 +7,12 @@ class CocktailsController < ApplicationController
 
         if @cocktail.valid?
             @cocktail.save
+            session[:cocktail_attributes] = {}
             redirect_to cocktail_path(@cocktail)
         else
+            session[:cocktail_attributes] = cocktail_params
             flash[:notice] = build_error_msg(@cocktail.errors.messages, "create")
-            render :new
+            redirect_to new_cocktail_url
         end
     end
 
@@ -42,10 +44,12 @@ class CocktailsController < ApplicationController
     end
 
     def define_current_cocktail
+        session[:cocktail_attributes] ||= {}
+        session[:cocktail_attributes] = {} if params["num_ingredients"]
         if params[:id]
             @cocktail = Cocktail.find(params[:id])
         else
-            @cocktail = Cocktail.new
+            @cocktail = Cocktail.new(session[:cocktail_attributes])
         end
     end
 
@@ -58,7 +62,7 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :img_url, :instructions, :glass_type, cocktail_ingredients_attributes: [ [ :ingredient_id, :measurement ] ] )
+        params.require(:cocktail).permit(:name, :img_url, :instructions, :glass_type, cocktail_ingredients_attributes: [ [ :id, :ingredient_id, :measurement ] ] )
     end
 
     def build_error_msg(messages, verb)

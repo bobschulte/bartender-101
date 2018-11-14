@@ -14,13 +14,13 @@ class Cocktail < ApplicationRecord
 
   def duplicate_ingredient?
     id_array = []
-
+  
     self.cocktail_ingredients.each do |cocktail_ingredient|
         id_array << cocktail_ingredient.ingredient_id
     end
     # byebug
     check = id_array.detect{ |e| id_array.count(e) > 1 }
-
+  
     if !check.nil?
       errors.add(:cocktail_ingredient, "cannot be duplicated")
     end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
+
+  resources :users, except: :destroy
   resources :sessions
   # resources :cocktail_ingredients
   resources :ingredients

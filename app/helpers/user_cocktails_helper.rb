@@ -1,0 +1,2 @@
+module UserCocktailsHelper
+end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :user_cocktails
   get '/', to: 'sessions#new', as: 'root'
 
   resources :users, except: :destroy

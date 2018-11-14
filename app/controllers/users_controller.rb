@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     before_action :define_current_user
     before_action :require_login
-    skip_before_action :require_login, only: [:new]
+    skip_before_action :require_login, only: [:new, :create]
 
     def create
         user = User.new(user_params)

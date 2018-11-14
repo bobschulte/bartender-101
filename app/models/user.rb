@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :user_cocktails
+  has_many :cocktails, through: :user_cocktails
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true, uniqueness: true

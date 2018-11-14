@@ -58,7 +58,7 @@ class CocktailsController < ApplicationController
     end
 
     def cocktail_params
-        params.require(:cocktail).permit(:name, :img_url, :instructions, :glass_type, cocktail_ingredients_attributes: [ [ :ingredient_id, :measurement ] ] )
+        params.require(:cocktail).permit(:name, :img_url, :instructions, :glass_type, cocktail_ingredients_attributes: [ [ :id, :ingredient_id, :measurement ] ] )
     end
 
     def build_error_msg(messages, verb)

@@ -1,7 +1,7 @@
 class Cocktail < ApplicationRecord
   has_many :cocktail_ingredients, dependent: :destroy
   has_many :ingredients, through: :cocktail_ingredients
-  accepts_nested_attributes_for :cocktail_ingredients #, reject_if: :duplicate_ingredient?
+  accepts_nested_attributes_for :cocktail_ingredients#, reject_if: :duplicate_ingredient?
 
   validates :name, presence: true, uniqueness: true
   validate :duplicate_ingredient?
@@ -14,6 +14,7 @@ class Cocktail < ApplicationRecord
 
   def duplicate_ingredient?
     id_array = []
+
     self.cocktail_ingredients.each do |cocktail_ingredient|
         id_array << cocktail_ingredient.ingredient_id
     end

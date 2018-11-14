@@ -14,7 +14,7 @@
 
   <%= f.fields_for :cocktail_ingredients do |cocktail_ingredient_form| %>
     <%= cocktail_ingredient_form.label :ingredient_id %>
-    <%= cocktail_ingredient_form.collection_select :ingredient_id, Ingredient.all, :id, :name %>
+    <%= cocktail_ingredient_form.collection_select :ingredient_id, Ingredient.all, :id, :name, prompt: "Please Select..." %>
     <br><br>
     <%= cocktail_ingredient_form.label :measurement %>
     <%= cocktail_ingredient_form.text_field :measurement %>

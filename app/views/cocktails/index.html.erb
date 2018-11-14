@@ -1,15 +1,17 @@
 <h1>Cocktails</h1>
+
+<%= form_tag new_cocktail_path, method: 'post' do %>
+<label>Create New Cocktail with This Many Ingredients: </label>
+<select id="num_ingredients" name="num_ingredients">
+  <% for i in (2..15) %>
+  <option value="<%= i %>"><%= i %></option>
+  <% end %>
+</select><br>
+<input type="submit" name="commit" value="Create Cocktail" />
+<% end %>
+<br>
+<p>Browse Cocktails:</p>
 <% @cocktails.each do |cocktail|%>
 <%= link_to cocktail.name, cocktail%><br>
 <% end %>
 <br>
-<%= form_tag new_cocktail_path, method: 'post' do %>
-  <label>Create Cocktail: </label><br>
-  <label>Select Number of Ingredients: </label>
-  <select id="num_ingredients" name="num_ingredients">
-    <% for i in (2..15) %>
-      <option value="<%= i %>"><%= i %></option>
-    <% end %>
-  </select><br>
-  <input type="submit" name="commit" value="Create Cocktail" />
-<% end %>

@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
   before_action :define_error_message
+  helper_method :current_user
+  helper_method :require_login
 
   def current_user
     User.find(session[:current_user_id])

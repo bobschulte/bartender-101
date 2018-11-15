@@ -10,14 +10,17 @@
   </head>
 
   <body>
+    <% if session[:current_user_id] %>
+    <div>
+      <%= link_to "Logout", logout_path, method: 'post' %>
+      <%= link_to "My Profile", user_path(current_user) %>
+      <%= link_to "Cocktails", cocktails_path %>
+      <%= link_to "Ingredients", ingredients_path %>
+    </div>
+    <% end %>
     <div>
       <%= yield %>
     </div>
     <br>
-    <% if session[:current_user_id] %>
-    <div>
-      <%= link_to "Logout", logout_path, method: 'post' %>
-    </div>
-    <% end %>
   </body>
 </html>

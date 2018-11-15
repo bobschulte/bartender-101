@@ -1,32 +1,34 @@
-<center>
-  <h1><%= @cocktail.name %> </h1>
+<div style="padding-top: 20px">
+  <center>
+    <h1 class="login-header"><%= @cocktail.name %> </h1>
 
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% end %>
-  <br><br>
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% end %>
+    <br><br>
 
-  <%= image_tag(@cocktail.img_url, size: "100x100") %><br>
+    <%= image_tag(@cocktail.img_url, size: "100x100") %><br>
 
-  <p>Recommended Glass: <%=@cocktail.glass_type %></p>
+    <p>Recommended Glass: <%=@cocktail.glass_type %></p>
 
-  <ul>
-    <% @cocktail.cocktail_ingredients.each do |cocktail_ingredient|%>
-      <p><%= cocktail_ingredient.measurement %> <%= link_to cocktail_ingredient.ingredient.name, cocktail_ingredient.ingredient%></p>
-      <% end %>
-  </ul>
-  <br>
-  
-  <div>
-  <p>Instructions:<p>
-  <p><%=@cocktail.instructions%></p>
-  </div>
+    <ul>
+      <% @cocktail.cocktail_ingredients.each do |cocktail_ingredient|%>
+        <p><%= cocktail_ingredient.measurement %> <%= link_to cocktail_ingredient.ingredient.name, cocktail_ingredient.ingredient%></p>
+        <% end %>
+    </ul>
+    <br>
 
-  <%= link_to "Add to My Favorites", add_favorite_path, method: 'post' %>
-  <br><br>
-  <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail) %>
-  <br><br>
-  <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: "delete" %>
-  <br><br>
-  <%= link_to "Back to All Cocktails", cocktails_path %>
-</center>
+    <div>
+    <p>Instructions:<p>
+    <p><%=@cocktail.instructions%></p>
+    </div>
+
+    <h2>
+      <%= button_to "Add to My Favorites", add_favorite_path, method: 'post' %>
+      <br>
+      <%= button_to "Edit Cocktail", edit_cocktail_path(@cocktail), method: 'get' %>
+      <br>
+      <%= button_to "Back to All Cocktails", cocktails_path, method: 'get' %>
+    </h2>
+  </center>
+</div>

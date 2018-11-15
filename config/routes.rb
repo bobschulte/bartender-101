@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :ingredients, except: [:destroy]
   post '/ingredients/new', to: 'ingredients#new'
 
-  resources :cocktails
+  resources :cocktails, except: [:destroy]
   post '/cocktails/new', to: 'cocktails#new'
   post '/cocktails/:id', to: 'cocktails#favorite', as: 'add_favorite'
 end

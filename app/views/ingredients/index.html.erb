@@ -1,11 +1,17 @@
 <h1>Ingredients</h1>
-
-<%= form_tag(ingredients_path, :method => "get", id: "search-form") do %>
-  <%= label_tag "Search by Ingredient Name" %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-
+<br>
+<div>
+  <%= button_to "Create Ingredient", new_ingredient_path %>
+</div>
+<br>
+<div>
+  <%= form_tag(ingredients_path, :method => "get", id: "search-form") do %>
+    <%= label_tag "Search by Ingredient Name" %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+</div>
+<br>
 <div>
   <p>Ingredients:</p>
   <% @ingredients.each do |ingredient|%>

@@ -6,13 +6,16 @@
 <br><br>
 
 <%= image_tag(@cocktail.img_url, size: "100x100") %><br>
-<p><%=@cocktail.glass_type %></p>
+
+<p>Recommended Glass: <%=@cocktail.glass_type %></p>
+
 <ul>
-<% @cocktail.cocktail_ingredients.each do |cocktail_ingredient|%>
-<li><%= cocktail_ingredient.measurement %> <%= link_to cocktail_ingredient.ingredient.name, cocktail_ingredient.ingredient%></li>
-<% end %>
+  <% @cocktail.cocktail_ingredients.each do |cocktail_ingredient|%>
+    <li><%= cocktail_ingredient.measurement %> <%= link_to cocktail_ingredient.ingredient.name, cocktail_ingredient.ingredient%></li>
+    <% end %>
 </ul>
-<p><%=@cocktail.instructions%></p>
+
+<p>Instructions: <%=@cocktail.instructions%></p>
 
 <%= link_to "Add to My Favorites", add_favorite_path, method: 'post' %>
 <br><br>

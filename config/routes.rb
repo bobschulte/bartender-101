@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/logout', to: 'sessions#destroy'
 
-  resources :ingredients
+  resources :ingredients, except: [:destroy]
+  post '/ingredients/new', to: 'ingredients#new'
 
   resources :cocktails
   post '/cocktails/new', to: 'cocktails#new'

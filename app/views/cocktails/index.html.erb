@@ -1,31 +1,33 @@
-<center>
-  <h1>Cocktails</h1>
-  <br>
-  <%= form_tag new_cocktail_path, method: 'post' do %>
-    <h2><%= label_tag "Create New Cocktail with " %>
-    <select id="num_ingredients" name="num_ingredients">
-      <% for i in (2..15) %>
-        <option value="<%= i %>"><%= i %></option>
-      <% end %>
-    </select>
-    <%= label_tag " Ingredients" %>
-    <br><br>
-    <%= button_tag "Create Cocktail" %></h2>
-  <% end %>
-
-  <br>
-
-  <div class="row" margin-top="15px">
-    <% @cocktails.each do |cocktail|%>
-      <section class="col-md-2" style="padding-top: 20px">
-      <div class="img-container">
-        <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
-          <div class="middle">
-            <div class="text"><%=cocktail.name%></div>
-          </div> <%# middle%>
-        </div> <%# img-container %>
-      </section>
+<div style="padding-top: 20px">
+  <center>
+    <h1 class="login-header">Cocktails</h1>
+    <br>
+    <%= form_tag new_cocktail_path, method: 'post' do %>
+      <h2><%= label_tag "Create New Cocktail with " %>
+      <select id="num_ingredients" name="num_ingredients">
+        <% for i in (2..15) %>
+          <option value="<%= i %>"><%= i %></option>
+        <% end %>
+      </select>
+      <%= label_tag " Ingredients" %>
+      <br><br>
+      <%= button_tag "Create Cocktail" %></h2>
     <% end %>
 
-  </div>
-</center>
+    <br>
+
+    <div class="row" margin-top="15px">
+      <% @cocktails.each do |cocktail|%>
+        <section class="col-md-2" style="padding-top: 20px">
+        <div class="img-container">
+          <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
+            <div class="middle">
+              <div class="text"><%=cocktail.name%></div>
+            </div> <%# middle%>
+          </div> <%# img-container %>
+        </section>
+      <% end %>
+
+    </div>
+  </center>
+</div>

@@ -1,25 +1,27 @@
-<center>
-  <h1>Ingredients</h1>
-  <br>
-  <div>
-    <h2><%= button_to "Create Ingredient", new_ingredient_path %></h2>
-  </div>
-  <br><br><br>
-  <div>
-    <h2>
-      <%= form_tag(ingredients_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search] %><br>
-        <br>
-        <%= button_tag "Search by Ingredient Name", :name => nil %>
+<div style="padding-top: 20px">
+  <center>
+    <h1 class="login-header">Ingredients</h1>
+    <br>
+    <div>
+      <h2><%= button_to "Create Ingredient", new_ingredient_path %></h2>
+    </div>
+    <br><br><br>
+    <div>
+      <h2>
+        <%= form_tag(ingredients_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search] %><br>
+          <br>
+          <%= button_tag "Search by Ingredient Name", :name => nil %>
+        <% end %>
+      </h2>
+    </div>
+    <br>
+    <div class="row" margin-top="15px">
+      <% @ingredients.each do |ingredient|%>
+        <section class="col-md-2" style="padding-top: 20px">
+          <%= link_to ingredient.name, ingredient%><br>
+        </section>
       <% end %>
-    </h2>
-  </div>
-  <br>
-  <div class="row" margin-top="15px">
-    <% @ingredients.each do |ingredient|%>
-      <section class="col-md-2" style="padding-top: 20px">
-        <%= link_to ingredient.name, ingredient%><br>
-      </section>
-    <% end %>
-  </div>
-</center>
+    </div>
+  </center>
+</div>

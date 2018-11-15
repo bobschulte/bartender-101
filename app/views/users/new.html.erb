@@ -1,4 +1,10 @@
-<center>
-  <h1>Register User</h1>
-  <%= render "form" %>
-</center>
+<div style="padding-top: 20px">
+  <center>
+    <h1 class="login-header">Register User</h1>
+    <div style="padding-top: 5px">
+      <%= render "form" %>
+      <br>
+      <h2><%= button_to "Back to Login", new_session_path, method: 'get' %></h2>
+    </div>
+  </center>
+</div>

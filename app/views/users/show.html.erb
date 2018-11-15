@@ -1,3 +1,5 @@
+
+<div style="padding-top: 20px">
 <h1><%= @user.full_name %></h1>
 <%= image_tag(@user.img_url, size: "200x200", :class=>"img-circle") %><br>
 <%= link_to "Edit User", edit_user_path(@user) %><br>
@@ -17,3 +19,4 @@
     <% end %>
 </div>
 
+</div>

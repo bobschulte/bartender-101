@@ -1,18 +1,20 @@
-<%= form_with model: @user do |f| %>
-  <%= f.label :first_name %><br>
-  <%= f.text_field :first_name %><br>
-  <br>
-  <%= f.label :last_name %><br>
-  <%= f.text_field :last_name %><br>
-  <br>
-  <%= f.label :username %><br>
-  <%= f.text_field :username %><br>
-  <br>
-  <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
-  <br>
-  <%= f.label :img_url%><br>
-  <%= f.text_field :img_url%><br>
-  <br>
-  <%= f.submit %>
-<% end %>
+<h2>
+  <%= form_with model: @user do |f| %>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %><br>
+    <br>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %><br>
+    <br>
+    <%= f.label :username %><br>
+    <%= f.text_field :username %><br>
+    <br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+    <br>
+    <%= f.label :img_url%><br>
+    <%= f.text_field :img_url%><br>
+    <br>
+    <%= f.submit %>
+  <% end %>
+</h2>

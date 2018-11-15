@@ -1,19 +1,25 @@
-<h1>Login</h1>
+<div style="padding-top: 30px">
+  <center>
+    <h1>Login</h1>
 
-<div>
-  <%= @error_message %>
-</div>
-<br>
-<div>
-<%= form_with url: '/sessions/', method: :post do |f| %>
-<%= f.label "Username:"%><br>
-<%= f.text_field :username %><br>
-<%= f.label "Password:"%><br>
-<%= f.password_field :password %><br>
-<%= f.submit "Login" %>
-<% end %>
-</div>
-<br>
-<div>
-  <%= link_to "Register New User", new_user_path %>
+    <div>
+      <%= @error_message %>
+    </div>
+    <br>
+    <div style="padding-top: 5px">
+      <%= form_with url: '/sessions/', method: :post do |f| %>
+        <%= f.label :username %><br>
+        <%= f.text_field :username %><br>
+        <br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %><br>
+        <br>
+        <%= f.button "Login" %>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      <%= link_to "Register New User", new_user_path %>
+    </div>
+  </center>
 </div>

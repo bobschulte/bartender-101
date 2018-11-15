@@ -1,25 +1,25 @@
 <div style="padding-top: 20px">
   <center>
-    <h1>Login</h1>
+    <h1 class="login-header">Login</h1>
 
     <div>
       <%= @error_message %>
     </div>
     <br>
     <div style="padding-top: 5px">
-      <%= form_with url: '/sessions/', method: :post do |f| %>
-        <%= f.label :username %><br>
-        <%= f.text_field :username %><br>
-        <br>
-        <%= f.label :password %><br>
-        <%= f.password_field :password %><br>
-        <br>
-        <%= f.button "Login" %>
-      <% end %>
+      <h2>
+        <%= form_with url: '/sessions/', method: :post do |f| %>
+          <%= f.label :username %><br>
+          <%= f.text_field :username %><br>
+          <br>
+          <%= f.label :password %><br>
+          <%= f.password_field :password %><br>
+          <br>
+          <%= f.button "Login" %>
+        <% end %>
+      </h2>
     </div>
     <br>
-    <div>
-      <%= button_to "Register New User", new_user_path, method: 'get' %>
-    </div>
+    <h2><%= button_to "Register New User", new_user_path, method: 'get' %></h2>
   </center>
 </div>

@@ -14,6 +14,8 @@
 </ul>
 <p><%=@cocktail.instructions%></p>
 
+<%= link_to "Add to My Favorites", add_favorite_path, method: 'post' %>
+<br><br>
 <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail) %>
 <br><br>
 <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: "delete" %>

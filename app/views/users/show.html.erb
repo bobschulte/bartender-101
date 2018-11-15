@@ -1,10 +1,10 @@
 <h1><%= @user.full_name %></h1>
 <%= link_to "Edit User", edit_user_path(@user) %><br>
 
-<%= @user.user_cocktails.each do |user_cocktail| %>
+<% @user.cocktails.each do |cocktail| %>
 <ul>
     <li>
-        <%= user_cocktail.cocktail.name %>
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
     </li>
 </ul>
 <% end %>

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :user_cocktails
   get '/', to: 'sessions#new', as: 'root'
 
-  resources :users, except: :destroy
+  resources :users, except: [:index, :destroy]
 
-  resources :sessions, except: :destroy
+  resources :sessions, only: [:new, :create]
   get '/login', to: 'sessions#new'
   post '/logout', to: 'sessions#destroy'
 
@@ -13,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :cocktails
   post '/cocktails/new', to: 'cocktails#new'
+  post '/cocktails/:id', to: 'cocktails#favorite', as: 'add_favorite'
 end

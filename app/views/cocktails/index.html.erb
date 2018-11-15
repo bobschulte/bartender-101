@@ -22,7 +22,12 @@
 <div class="row" margin-top="15px">
   <% @cocktails.each do |cocktail|%>
     <section class="col-md-2" style="padding-top: 20px">
-    <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
+    <div class="img-container">
+      <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
+        <div class="middle">
+          <div class="text"><%=cocktail.name%></div>
+        </div> <%# middle%>
+      </div> <%# img-container %>
     </section>
   <% end %>
 

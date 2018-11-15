@@ -7,11 +7,11 @@
     <% end %>
     <br><br>
 
-    <%= image_tag(@cocktail.img_url, size: "100x100") %><br>
+    <%= image_tag(@cocktail.img_url, size: "250x250", :class=>"img-circle") %><br>
 
-    <p>Recommended Glass: <%=@cocktail.glass_type %></p>
+    <h2 class="serving_glass">Serving Glass: <%=@cocktail.glass_type %></h2>
 
-    <ul>
+    <ul class="cocktail_show">
       <% @cocktail.cocktail_ingredients.each do |cocktail_ingredient|%>
         <p><%= cocktail_ingredient.measurement %> <%= link_to cocktail_ingredient.ingredient.name, cocktail_ingredient.ingredient%></p>
         <% end %>
@@ -19,8 +19,8 @@
     <br>
 
     <div>
-    <p>Instructions:<p>
-    <p><%=@cocktail.instructions%></p>
+    <h2>Instructions:</h2>
+    <p class="cocktail_show"><%=@cocktail.instructions%></p>
     </div>
 
     <h2>

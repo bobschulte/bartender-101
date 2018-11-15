@@ -13,12 +13,6 @@
 
 <br>
 
-<%= form_tag(cocktails_path, :method => "get", id: "search-form") do %>
-  <%= label_tag "Search by Cocktail Name" %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :name => nil %>
-<% end %>
-
 <div class="row" margin-top="15px">
   <% @cocktails.each do |cocktail|%>
     <section class="col-md-2" style="padding-top: 20px">

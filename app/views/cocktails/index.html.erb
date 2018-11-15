@@ -2,13 +2,13 @@
 
 <%= form_tag new_cocktail_path, method: 'post' do %>
   <%= label_tag "Create New Cocktail with This Many Ingredients:" %>
-<select id="num_ingredients" name="num_ingredients">
-  <% for i in (2..15) %>
-  <option value="<%= i %>"><%= i %></option>
-  <% end %>
-</select>
-<br>
-<%= submit_tag "Create Cocktail" %>
+  <select id="num_ingredients" name="num_ingredients">
+    <% for i in (2..15) %>
+      <option value="<%= i %>"><%= i %></option>
+    <% end %>
+  </select>
+  <br>
+  <%= submit_tag "Create Cocktail" %>
 <% end %>
 
 <br>

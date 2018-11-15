@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
         if user.valid?
             user.save
-            session[:current_user_id] = user.id
             redirect_to '/login'
         else
             flash[:error_message] = build_error_msg(user.errors.messages, 'register')

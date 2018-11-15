@@ -39,6 +39,11 @@ class CocktailsController < ApplicationController
         end
     end
 
+    def favorite
+        current_user.user_favorite_cocktails.find_or_create_by(cocktail_id: params[:id])
+        redirect_to user_path(current_user)
+    end
+
     def destroy
         @cocktail.destroy
         redirect_to cocktails_path

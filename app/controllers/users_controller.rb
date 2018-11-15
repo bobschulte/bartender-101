@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :username, :password)
+        params.require(:user).permit(:first_name, :last_name, :username, :password, :img_url)
     end
 
     def build_error_msg(messages, verb)

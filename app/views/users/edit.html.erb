@@ -1,2 +1,12 @@
-<h1>Edit User</h1>
-<%= render "form" %>
+<div style="padding-top: 20px">
+  <center>
+    <h1 class="login-header">Edit User</h1>
+    <div style="padding-top: 5px"
+      <h2><%= render "form" %></h2>
+    </div>
+    <br>
+    <div>
+      <h2><%= button_to "Back to Profile", user_path(@user), method: 'get' %></h2>
+    </div>
+  </center>
+</div>

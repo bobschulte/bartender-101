@@ -4,9 +4,9 @@
     <h2>is a component of the following cocktails:</h2>
     <div class="row">
         <% @ingredient.cocktails.each do |cocktail| %>
-            <section class="col-md-2" style="padding-top: 20px">
+            <section class="col-md-3" style="padding-top: 20px">
             <div class="img-container">
-            <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
+            <%= link_to image_tag("#{cocktail.img_url}", size: "250x250", :class=>"img-circle"), cocktail%><br>
                 <div class="middle">
                 <div class="text"><%=cocktail.name%></div>
                 </div> <%# middle%>
@@ -14,6 +14,7 @@
             </section>
         <% end %>
     </div>
+    <br>
     <div>
       <h2><%= button_to "Back to All Ingredients", ingredients_path, method: 'get' %></h2>
     </div>

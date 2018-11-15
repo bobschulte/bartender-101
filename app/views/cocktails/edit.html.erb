@@ -1,2 +1,12 @@
-<h1>Edit Cocktail</h1>
-<%= render "form" %>
+<div style="padding-top: 20px">
+  <center>
+    <h1 class="login-header">Edit Cocktail</h1>
+    <div style="padding-top: 5px">
+      <h2><%= render "form" %></h2>
+    </div>
+    <br>
+    <div>
+      <h2><%= button_to "Back to All Cocktails", cocktails_path, method: 'get' %></h2>
+    </div>
+  </center>
+</div>

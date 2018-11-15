@@ -1,22 +1,23 @@
-
 <div style="padding-top: 20px">
-<h1><%= @user.full_name %></h1>
-<%= image_tag(@user.img_url, size: "200x200", :class=>"img-circle") %><br>
-<%= link_to "Edit User", edit_user_path(@user) %><br>
-<br>
+  <center>
+    <h1 class="login-header"><%= @user.full_name %></h1>
+    <br>
+    <%= image_tag(@user.img_url, size: "250x250", :class=>"img-circle") %><br>
+    <h2><%= button_to "Edit User", edit_user_path(@user), method: 'get' %><br></h2>
+    <br>
 
-<p>My Favorites:</p>
-<div class="row">
-    <% @user.cocktails.each do |cocktail| %>
-        <section class="col-md-2" style="padding-top: 20px">
-        <div class="img-container">
-        <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
-            <div class="middle">
-            <div class="text"><%=cocktail.name%></div>
-            </div> <%# middle%>
-        </div> <%# img-container %>
-        </section>
-    <% end %>
-</div>
-
+    <h2><%= @user.first_name %>'s Favorite Cocktails:</h2>
+    <div class="row">
+        <% @user.cocktails.each do |cocktail| %>
+            <section class="col-md-3" style="padding-top: 20px">
+            <div class="img-container">
+            <%= link_to image_tag("#{cocktail.img_url}", size: "250x250", :class=>"img-circle"), cocktail%><br>
+                <div class="middle">
+                <div class="text"><%=cocktail.name%></div>
+                </div> <%# middle%>
+            </div> <%# img-container %>
+            </section>
+        <% end %>
+    </div>
+  </center
 </div>

@@ -8,7 +8,11 @@ class IngredientsController < ApplicationController
     end
 
     def index
+      if params[:search]
+        @ingredients = Ingredient.where("name like ?", "%#{params[:search]}%").order(:name)
+      else
         @ingredients = Ingredient.all.order(:name)
+      end
     end
 
     def update

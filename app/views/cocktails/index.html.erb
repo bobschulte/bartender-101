@@ -1,17 +1,27 @@
 <h1>Cocktails</h1>
 
 <%= form_tag new_cocktail_path, method: 'post' do %>
-<label>Create New Cocktail with This Many Ingredients: </label>
+  <%= label_tag "Create New Cocktail with This Many Ingredients:" %>
 <select id="num_ingredients" name="num_ingredients">
   <% for i in (2..15) %>
   <option value="<%= i %>"><%= i %></option>
   <% end %>
-</select><br>
-<input type="submit" name="commit" value="Create Cocktail" />
-<% end %>
+</select>
 <br>
-<p>Browse Cocktails:</p>
-<% @cocktails.each do |cocktail|%>
-<%= link_to cocktail.name, cocktail%><br>
+<%= submit_tag "Create Cocktail" %>
 <% end %>
+
 <br>
+
+<%= form_tag(cocktails_path, :method => "get", id: "search-form") do %>
+  <%= label_tag "Search by Cocktail Name" %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search", :name => nil %>
+<% end %>
+
+<div>
+  <p>Cocktails:</p>
+  <% @cocktails.each do |cocktail|%>
+    <%= link_to cocktail.name, cocktail%><br>
+  <% end %>
+</div>

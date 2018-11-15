@@ -24,7 +24,11 @@ class CocktailsController < ApplicationController
     end
 
     def index
-        @cocktails = Cocktail.all.order(:name)
+        if params[:search]
+            @cocktails = Cocktail.where("name like ?", "%#{params[:search]}%").order(:name)
+        else
+            @cocktails = Cocktail.all.order(:name)
+        end
     end
 
     def update

@@ -2,10 +2,16 @@
 <%= link_to "Edit User", edit_user_path(@user) %><br>
 <br>
 <p>My Favorites:</p>
-<ul>
-<% @user.cocktails.each do |cocktail| %>
-    <li>
-        <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </li>
-<% end %>
-</ul>
+<div class="row">
+    <% @user.cocktails.each do |cocktail| %>
+        <section class="col-md-2" style="padding-top: 20px">
+        <div class="img-container">
+        <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
+            <div class="middle">
+            <div class="text"><%=cocktail.name%></div>
+            </div> <%# middle%>
+        </div> <%# img-container %>
+        </section>
+    <% end %>
+</div>
+

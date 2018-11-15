@@ -33,6 +33,7 @@ body {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
+  pointer-events: none;
 }
 
 .img-container:hover .img-circle {
@@ -45,6 +46,6 @@ body {
 
 .text {
 //   color: white;
-  font-size: 13px;
-  padding: 16px 32px;
+    font-size: 13px;
+    padding: 16px 32px;
 }

@@ -1,17 +1,18 @@
-<h1><%= @user.full_name %></h1>
-<%= link_to "Edit User", edit_user_path(@user) %><br>
-<br>
-<p>My Favorites:</p>
-<div class="row">
-    <% @user.cocktails.each do |cocktail| %>
-        <section class="col-md-2" style="padding-top: 20px">
-        <div class="img-container">
-        <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
-            <div class="middle">
-            <div class="text"><%=cocktail.name%></div>
-            </div> <%# middle%>
-        </div> <%# img-container %>
-        </section>
-    <% end %>
+<div style="padding-top: 20px">
+  <h1><%= @user.full_name %></h1>
+  <%= link_to "Edit User", edit_user_path(@user) %><br>
+  <br>
+  <p>My Favorites:</p>
+  <div class="row">
+      <% @user.cocktails.each do |cocktail| %>
+          <section class="col-md-2" style="padding-top: 20px">
+          <div class="img-container">
+          <%= link_to image_tag("#{cocktail.img_url}", size: "150x150", :class=>"img-circle"), cocktail%><br>
+              <div class="middle">
+              <div class="text"><%=cocktail.name%></div>
+              </div> <%# middle%>
+          </div> <%# img-container %>
+          </section>
+      <% end %>
+  </div>
 </div>
-
